@@ -1,0 +1,296 @@
+/* ============================
+   GLOBAL RESET + THEME
+   ============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #020617;
+  --bg-secondary: #020617;
+  --bg-card: #020617;
+  --border: #1f2937;
+  --primary: #a855f7;
+  --accent: #ec4899;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --glow: rgba(168, 85, 247, 0.5);
+}
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: radial-gradient(circle at top left, #111827, #020617 60%, #000);
+  color: var(--text-main);
+}
+
+/* Wrap the whole app */
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #050816, #020617);
+}
+
+/* Shared container */
+.container {
+  max-width: 1120px; /* ~ max-w-7xl */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ============================
+   HEADER
+   ============================ */
+.header {
+  padding: 1.5rem 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* ============================
+   SEARCH BAR
+   ============================ */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background-color: #020617;
+  color: var(--text-main);
+  outline: none;
+  font-size: 0.9rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.4);
+}
+
+.search-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: #fff;
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.6);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 18px rgba(168, 85, 247, 0.8);
+}
+
+/* Status text under the title */
+.status-message {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+
+/* App logo/title */
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Simple nav menu */
+.nav {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nav-link:hover {
+  background-color: #111827;
+  color: var(--text-main);
+}
+
+.nav-link-active {
+  background: radial-gradient(circle at 0 0, var(--primary), #111827);
+  color: #fff;
+}
+
+/* Stack header on small screens */
+@media (max-width: 640px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ============================
+   MOVIE GRID SECTION
+   ============================ */
+.movie-grid-section {
+  padding: 1rem 0 3rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive grid like the Tailwind version:
+   grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6
+   We'll simulate that with auto-fit.
+*/
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+/* ============================
+   MOVIE CARD
+   ============================ */
+.movie-card {
+  position: relative;
+  border-radius: 0.9rem;
+  overflow: hidden;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Hover glow effect */
+.movie-card:hover {
+  transform: scale(1.05);
+  border-color: var(--primary);
+  box-shadow: 0 15px 40px var(--glow);
+}
+
+/* Poster wrapper keeps the 2:3 aspect ratio */
+.movie-poster-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+}
+
+/* Poster image */
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Poster overlay gradient (appears on hover) */
+.movie-poster-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.4),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover animation similar to group-hover in Tailwind */
+.movie-card:hover .movie-poster {
+  transform: scale(1.1);
+}
+
+.movie-card:hover .movie-poster-overlay {
+  opacity: 1;
+}
+
+/* Movie info at the bottom overlay (title + rating) */
+.movie-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem;
+  transform: translateY(6px);
+  transition: transform 0.25s ease;
+}
+
+.movie-card:hover .movie-info {
+  transform: translateY(0);
+}
+
+/* Movie title text */
+.movie-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+  color: var(--text-main);
+}
+
+/* Movie rating row */
+.movie-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Star icon (instead of Lucide Star) */
+.movie-star {
+  font-size: 0.8rem;
+  color: var(--primary);
+}
+
+/* Rating value */
+.movie-rating-value {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+/* Tiny screen tweaks */
+@media (max-width: 480px) {
+  .movie-title {
+    font-size: 0.9rem;
+  }
+
+  .movie-rating-value {
+    font-size: 0.8rem;
+  }
+}

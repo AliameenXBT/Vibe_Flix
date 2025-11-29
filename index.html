@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>VibeFlix - Movie App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- =========================
+           HEADER: Title + Search
+           ========================= -->
+      <header class="header">
+        <div class="container header-inner">
+          <!-- App title -->
+          <h1 class="logo">VibeFlix</h1>
+
+          <!-- Search box -->
+          <form id="search-form" class="search-bar">
+            <input
+              id="search-input"
+              type="text"
+              placeholder="Search for movies..."
+              class="search-input"
+              autocomplete="off"
+            />
+            <button type="submit" class="search-button">
+              Search
+            </button>
+          </form>
+        </div>
+      </header>
+
+      <!-- =========================
+           MAIN CONTENT
+           ========================= -->
+      <main>
+        <section id="movie-grid-section" class="movie-grid-section">
+          <div class="container">
+            <h2 class="section-title">Results</h2>
+
+            <!-- Status text (loading / errors / empty) -->
+            <p id="status-message" class="status-message"></p>
+
+            <!-- Movie cards will be injected here by script.js -->
+            <div
+              id="movie-grid"
+              class="movie-grid"
+              role="list"
+              aria-label="Movie collection"
+            >
+              <!-- JS will create movie cards here -->
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
