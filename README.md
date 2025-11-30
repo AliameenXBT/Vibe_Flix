@@ -8,8 +8,7 @@ Designed in **Manus AI**, improved with **Cursor**, and built with a clean mobil
 
 ## 🚀 Live Demo
 
-🔗 **Live App:** https://your-deployment-link.vercel.app  
-(Replace this with your actual Vercel link)
+🔗 **Live App:** https://vibe-flix-six.vercel.app/ 
 
 ---
 
@@ -34,15 +33,3 @@ Designed in **Manus AI**, improved with **Cursor**, and built with a clean mobil
 - Designed with **Manus AI**  
 - Developed with **Cursor IDE**  
 - Deployed on **Vercel**
-
----
-
-## 📡 API Setup
-
-1. Visit https://www.themoviedb.org
-2. Create an account → Go to **Settings → API**
-3. Copy your API key
-4. Open `script.js` and replace:
-
-```js
-const API_KEY = "YOUR_TMDB_API_KEY_HERE";
